@@ -1,18 +1,22 @@
 #!/usr/bin/env bash
 # File: guessinggame.sh
 
-# Determine the number of files in the directory. 
+# Create a function to determine the number of files in the directory. 
 
-number=$(ls -l | egrep -c '^-')
+function nof {
+	number=$(ls -l | egrep -c '^-')
+}
 
 # Ask for user guess, compare it to the number of files, and prompt user to try 
 # again if their guess is incorrect. 
+
+nof
 
 guess=-1
 
 while [[ $guess -ne $number ]]
 do
-	echo "How many files are in the current directory? Type a guess and press Enter:"
+	echo "How many files are in the current directory? Type a number and press Enter:"
 	read guess
 
 	if [[ $guess -eq $number ]]
